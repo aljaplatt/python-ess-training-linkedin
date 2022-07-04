@@ -119,3 +119,7 @@ def appendFour(myList):
 
 appendFour(lst)
 print(lst)
+
+type(None)
+
+#! Classes and Objects 
