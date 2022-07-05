@@ -41,6 +41,7 @@ print(my_set)
 
 my_tuples = (1,2,3)
 
+# my_tuples.append(4) #! ERR - Tuple has no append attribute
 #* Dictionaries -  like an object ? - unique keys 
 
 my_dictionary = {
@@ -52,6 +53,8 @@ my_dictionary = {
 print(my_dictionary['apple']) #* will pick last one - 'apple': 'sometimes green fruit'
 
 #* Operators 
+
+print('QUESTION:', 456 % 10 ) #? 6
 
 #? Division will give a decimal or float back 
 
@@ -123,3 +126,43 @@ print(lst)
 type(None)
 
 #! Classes and Objects 
+#? The init function is a special python defined function, that is called whenever an instance of the class Dog is created. 
+#* self is the specific instance of the Dog class, after we've initialised it. 
+class Dog:
+    # def __init__(self):
+    #     self.name = 'Rover'
+    #     self.legs = 4
+    def __init__(self, name):
+        self.name = name
+        self.legs = 4
+    
+    def speak(self): 
+        print(self.name + ' says: Bark!')
+    # def speak(self):
+    #     print('Bark!')
+
+#? my_dog is equal to a newly created instance of the Dog class
+my_dog = Dog('Rover')
+another_dog = Dog('Guts')
+
+my_dog.speak() #? 'Rover says: Bark!' 
+another_dog.speak() #? 'Guts says: Bark!' 
+
+print(type(Dog('Rover')))
+
+#? Ints and Floats
+
+print(20 / 4)
+print( 4 + 4.0)
+print(4 * 4.0)
+print(4 ** 4.0) #? 256.0
+print(int(4 ** 4.0)) #? 256 - int is a built in class in python 
+print(int(8.9)) #? 8
+print(int(8.9999)) #? 8 
+print(int(14/3)) #? 4
+print(round(14/3)) #? 5
+print(round(14/3, 2)) #? 4.67 - 2 dec places
+
+print(1.2 - 1.0) #? 0.19999999996
+print(round(1.2 - 1.0, 2)) #? 0.2
+
