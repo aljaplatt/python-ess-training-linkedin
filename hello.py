@@ -407,3 +407,31 @@ cheese['strong'].append('stilton')
 print(cheese) 
 cheese['mature'].append('cheddar')
 print(cheese) 
+
+#? List comprehensions 
+
+myList2 = [1,2,3,4,5] 
+print([2*item for item in myList2]) #* will double everything in the list 
+
+list99 = list(range(100))
+filteredList = [item for item in list99 if item % 10 == 0]
+print(filteredList) #* all nums divisible by 10
+
+filteredList2 = [item for item in list99 if item % 10 < 3]
+print(filteredList2) #* all nums divisible by 10
+
+aString = 'My name is Alex and im stuck in a chair'
+print(aString.split('and')) 
+print(aString.split()) #* WORDS
+
+def cleanWord(word): 
+    return word.replace('a', 'X').lower()
+
+print([cleanWord(word) for word in aString.split()])
+print([cleanWord(word) for word in aString.split() if len(cleanWord(word)) > 3])
+
+#* NESTED LIST COMPREHENSIONS
+
+print([[cleanWord(word) for word in sentence.split()] for sentence in aString.split('and')])
+
+#? [['my', 'nxme', 'is', 'alex'], ['im', 'stuck', 'in', 'x', 'chxir']]
