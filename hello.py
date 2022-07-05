@@ -297,3 +297,19 @@ for i in range(100):
 
 aList = list(range(100)) #? arr 0-99
 print(aList[::10]) #? - 0, 10, 20, 30 ....
+aList[::-1] #? the list backwards 
+
+#? MODIFYING LISTS  
+
+zList = [1,2,3,4]
+zList.append(5)
+print('append zList with 5:', zList)
+
+zList.insert(3, 'new value')
+print('insert:',zList)
+zList.remove('new value')
+print('remove:',zList)
+zList.pop()
+
+while len(zList): #? this will evaluate to false at 0
+    print
