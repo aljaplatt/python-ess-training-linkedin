@@ -1,6 +1,7 @@
 from termcolor import colored
 from decimal import Decimal, getcontext
 import math
+from collections import defaultdict
 
 print(colored('hello world', 'green', attrs=['bold', 'reverse']))
 
@@ -347,3 +348,62 @@ print('a' in aSet)
 
 aSet.discard('a') #? remove item from set 
 print(aSet)
+
+#* order does matter with tuples  
+#* cannot modify 
+myTuple = ('a', 'b', 'c')
+print(myTuple[0]) #? a
+#! myTuple[0] = 'z'  - DOESN'T WORK 
+
+#? Memory efficient - can set exact memory requirement 
+
+#? Dictionaries
+
+animals = {
+    'a': 'aardvark',
+    'b': 'bear',
+    'c': 'cat'
+} 
+
+print(animals)
+print(animals['a'])
+animals['d'] = 'dinosaur'
+print(animals['d'])
+animals['a'] = 'ant eater'
+
+print(animals.keys()) #? dict_keys(['a', 'b', 'c', 'd'])
+print(animals.values()) #? dict_values(['ant eater', 'bear', 'cat', 'dinosaur'})
+
+#? Check for key e, 2nd arg is a default  
+animals.get('e', 'elephant')
+
+print(len(animals))
+
+funimals = {
+    'a': ['aardvark', 'alien'],
+    'b': ['bear', 'beaver'],
+    'c': 'cat'
+} 
+
+funimals['b'].append('bison')
+
+print(funimals)
+
+funimals['d'] = ['duck']
+
+if 'e' not in funimals:
+    funimals['e'] = []
+    
+funimals['e'].append('eagle')
+
+print(funimals)
+
+#* Default dict
+
+cheese = defaultdict(list)
+print(cheese) 
+
+cheese['strong'].append('stilton')
+print(cheese) 
+cheese['mature'].append('cheddar')
+print(cheese) 
