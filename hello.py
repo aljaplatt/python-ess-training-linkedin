@@ -1,5 +1,6 @@
 from termcolor import colored
 from decimal import Decimal, getcontext
+import math
 
 print(colored('hello world', 'green', attrs=['bold', 'reverse']))
 
@@ -169,6 +170,8 @@ print(round(14/3, 2)) #? 4.67 - 2 dec places
 print(1.2 - 1.0) #? 0.19999999996 - Floating point err
 print(round(1.2 - 1.0, 2)) #? 0.2
 
+print(int('100')) #* will print number, not string 
+
 #? Bases 
 
 print(int('1ab', 16)) #* 427
@@ -242,5 +245,55 @@ else:
 
 
 #? STRINGS 
+#? Slicing 
+tvShow = 'The Sopranos'
 
- 
+print(tvShow[0]) #? 'T'
+print(tvShow[1]) #? 'h'
+print(tvShow[3: 12]) #? ' Sopranos'
+print(tvShow[:12]) #? 'The Sopranos'
+print(tvShow[5:]) #? from to the end
+
+theList = [1,2,3,4,5]
+print(theList[2:4]) #? 3,4
+newList = theList[2:4]
+print(newList)
+print(newList == theList)
+print(len(tvShow))
+print(len(theList))
+
+#* FORMATTING ~ like template literals - f strings 
+
+print('My number is: ' +str(5))
+print(f'My number is: {5}. 5 times 2 is {5*2}') 
+
+print(f'Pi is: {math.pi:.2f}') #? Pi is: 3.14
+
+newLineStr = ''' 
+i can now write over mutliple
+lines
+cool using \'\'\'
+'''
+
+print(newLineStr)
+
+#* BYTES obj
+
+print(bytes(4))
+
+#* 4. BASIC DATA STRUCTURES 
+
+#? List slicing 
+
+aList = [1,2,3,4,5]
+aList[3:] #? 4,5
+
+aList[0:6:2] #?  1,3,5 - step size of 2 = every other item
+aList[::2] #? the same as above 
+
+for i in range(100):
+    print(i)
+#? 0-99 
+
+aList = list(range(100)) #? arr 0-99
+print(aList[::10]) #? - 0, 10, 20, 30 ....
