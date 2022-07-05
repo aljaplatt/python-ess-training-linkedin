@@ -312,4 +312,38 @@ print('remove:',zList)
 zList.pop()
 
 while len(zList): #? this will evaluate to false at 0
-    print
+    print(zList.pop())
+
+print(zList)
+
+a = [1,2,3,4,5]
+# b = a
+# a.append(6)
+print(b) #* [1,2,3,4,5, 6] - points to same location as a in memory - use copy()
+b = a.copy()
+a.append(6)
+print(b) #* [1,2,3,4,5]
+
+#* Sets & Tuples 
+
+aSet = {'a', 'b', 'c'} 
+print(aSet)
+
+#? A good way to remove duplicates from a list is to convert list to set, sets can only contain unique values. Then convert back again.
+
+duplicateList = [1,2,3,3,4,4,4,5,5,5,6,6,6,7]
+duplicateList = list(set(duplicateList))
+print(duplicateList)
+
+#* Order doesn't matter with sets  
+#? Declared with { }
+#* Order may not be the same when duplicated, but items will be unique
+#! - you cannot fetch items by their index   mySet[0] 
+
+aSet.add('d')
+print(aSet)
+
+print('a' in aSet) 
+
+aSet.discard('a') #? remove item from set 
+print(aSet)
