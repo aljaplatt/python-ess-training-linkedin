@@ -435,3 +435,28 @@ print([cleanWord(word) for word in aString.split() if len(cleanWord(word)) > 3])
 print([[cleanWord(word) for word in sentence.split()] for sentence in aString.split('and')])
 
 #? [['my', 'nxme', 'is', 'alex'], ['im', 'stuck', 'in', 'x', 'chxir']]
+
+#? DICTIONARY COMPREHENSIONS
+
+animalList = [('a', 'aardvark'), ('b', 'bear'), ('c', 'cat'), ('d', 'dog')]
+animals = {item[0]: item[1] for item in animalList}
+print(animals) #? {'a': 'aardvark', 'b': 'bear', 'c': 'cat', 'd': 'dog'}
+#! SAME 
+animals = {key: value for key, value in animalList}
+print(animals) #? {'a': 'aardvark', 'b': 'bear', 'c': 'cat', 'd': 'dog'}
+
+animals.items() 
+#? RETURNS - dict_items([('a', 'aardvark'), ('b', 'bear'), ('c', 'cat'), ('d', 'dog')])
+
+list(animals.items())
+#? RETURNS - [('a', 'aardvark'), ('b', 'bear'), ('c', 'cat'), ('d', 'dog')]
+
+[{'letter': key, 'name': value} for key, value in animals.items()]
+
+
+#? RETURNS - [{'letter': 'a', 'name': 'aardvark'},
+#  {'letter': 'b', 'name': 'bear'},
+#  {'letter': 'c', 'name': 'cat'},
+#  {'letter': 'd', 'name': 'dog'}]
+
+
