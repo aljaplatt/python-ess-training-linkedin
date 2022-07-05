@@ -1,5 +1,5 @@
 from termcolor import colored
-
+from decimal import Decimal, getcontext
 
 print(colored('hello world', 'green', attrs=['bold', 'reverse']))
 
@@ -14,7 +14,10 @@ print(x1)
 name = 'alex'
 print(type(name)) # str, int, float 
 
+print('Hello World \nHello World') 
+
 print('Alex ' + 'Platt')
+print('Hello ' + name)
 print('1' + '1') # 11
 # print('1' + 1) # Type err 
 
@@ -163,6 +166,81 @@ print(int(14/3)) #? 4
 print(round(14/3)) #? 5
 print(round(14/3, 2)) #? 4.67 - 2 dec places
 
-print(1.2 - 1.0) #? 0.19999999996
+print(1.2 - 1.0) #? 0.19999999996 - Floating point err
 print(round(1.2 - 1.0, 2)) #? 0.2
 
+#? Bases 
+
+print(int('1ab', 16)) #* 427
+
+#? Import Class Decimal and function getcontext from decimal module at the top 
+
+getcontext() #* returns a context object, with global settings that are applied to the Decimal class.  prec=28
+
+getcontext().prec=4
+
+getcontext() #? prec=4
+
+Decimal(1) / Decimal(3) #? '0.3333' - 4 places
+
+Decimal('3.14') #todo SHORT
+#! vs 
+Decimal(3.14) #todo LONG
+
+round(1.2 - 1.0, 2)
+
+#* BOOLEANS
+
+print(bool(1)) #? True  
+print(bool(0)) #? False - only 'number' that is false 
+print(bool('True')) #? True 
+print(bool('')) #? False - empty string is false
+print(bool([])) #? False 
+print(bool([1,2])) #? True 
+print(bool({})) #? False 
+print(bool(None)) #? False 
+
+myList = [1,2]
+if myList:
+    print('myList has some values in it')
+
+#? 0 = false - a -b is not true, wont't print
+a = 5
+b = 5
+if a - b:
+    print('a and b are not equal')
+
+print(a == b) #? True 
+
+weatherIsNice = True
+haveUmbrella = False
+
+# if not haveUmbrella or weatherIsNice:
+#     print('Stay in')
+# else: 
+#     print('Walkies')
+
+#! Python evaluates left to right - the logic above won't act how we want it to.
+#? Instead we can write... (   )
+
+# if not (haveUmbrella or weatherIsNice):
+#     print('Stay in')
+# else: 
+#     print('Walkies') 
+
+#todo OR
+
+# if not haveUmbrella and not weatherIsNice:
+#     print('Stay in')
+# else: 
+#     print('Walkies')
+
+if haveUmbrella or weatherIsNice:
+    print('Walkies')
+else:
+    print('Stay in')
+
+
+#? STRINGS 
+
+ 
