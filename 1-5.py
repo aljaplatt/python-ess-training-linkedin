@@ -566,3 +566,32 @@ for number in range(2, 100):
     if not found_factors:
         print(f'{number} is prime!')
              
+
+#? CHAPTER 5 QUIZ 
+#*1 
+for number in range(1, 100):
+    if number % 10 == 0:
+        break
+else:
+    print('Let\'s print something out!')
+
+#*2
+
+print(['Monty Python' if n % 6 == 0 else 'Python' if n % 3 == 0 else 'Monty' if n % 2 == 0 else n for n in range(1, 10)])
+
+#*3
+
+#? If the current number of seconds is 59 seconds, how long will this program run? 
+wait_until = datetime.now().second + 2
+while datetime.now().second != wait_until:
+    print('Still waiting!')
+
+print(f'We are at {wait_until} seconds!')
+
+#* 4 - Will the print statement be reached in this code?
+
+for number in range(1, 9):
+    if number % 10 == 0:
+        break
+else:
+    print('Let\'s print something out!')
