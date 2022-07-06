@@ -2,6 +2,7 @@ from termcolor import colored
 from decimal import Decimal, getcontext
 import math
 from collections import defaultdict
+from datetime import datetime
 
 print(colored('hello world', 'green', attrs=['bold', 'reverse']))
 
@@ -499,3 +500,23 @@ print('Fizz' if x % 3 == 0 else x)
 fizzBuzz = 'FizzBuzz' if n % 15 == 0 else 'Fizz' if n % 3 == 0 else 'Buzz' if n % 5 == 0 else n 
 
 ['FizzBuzz' if n % 15 == 0 else 'Fizz' if n % 3 == 0 else 'Buzz' if n % 5 == 0 else n for n in range(1, 101)]
+
+#* Get current date / time 
+print(datetime.now())
+print(datetime.now().second)
+
+#* WHILE LOOP - WAIT FOR 2 SEC AND PRINT MESSAGE  
+
+wait_until = datetime.now().second + 2
+
+# while datetime.now().second != wait_until:
+#     print('Waiting')
+
+# print(f'We are at {wait_until} seconds!')
+
+#? PASS STATEMENT
+
+while datetime.now().second != wait_until:
+    pass
+
+print(f'We are at {wait_until} seconds!')
