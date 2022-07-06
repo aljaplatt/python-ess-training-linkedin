@@ -145,3 +145,17 @@ sorted(myList, key=lambda x: x['num'])
 
 #? [{'num': 1}, {'num': 2}, {'num': 3}]
 
+#? CHAPTER 7 - CLASSES AND OBJECTS
+
+class Dog:
+    def __init__(self, name):
+        self.name = name
+        self.legs = 4
+    
+    def speak(self):
+        print(self.name + ' says: Bark!')
+
+myDog = Dog('Rover')
+print(myDog.name)
+print(myDog.legs)
+
