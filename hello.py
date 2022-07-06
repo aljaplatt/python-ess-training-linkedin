@@ -460,3 +460,42 @@ list(animals.items())
 #  {'letter': 'd', 'name': 'dog'}]
 
 
+#? CONTROL FLOW
+
+#? FIZZBUZZ
+
+# for n in range(1, 101):
+#     if n % 15 == 0:
+#         print('FizzBuzz')
+#     else: 
+#         if n % 3 == 0: 
+#             print('Fizz') 
+#         else: 
+#             if n % 5 == 0:
+#                 print('Buzz')
+#             else:
+#                 print(n)
+
+#* ELIF STATEMENTS
+
+for n in range(1, 101):
+    if n % 15 == 0:
+        print('FizzBuzz')
+    elif n % 3 == 0: 
+        print('Fizz') 
+    elif n % 5 == 0:
+        print('Buzz')
+    else:
+        print(n)
+
+x = 5 
+print('Fizz' if x % 3 == 0 else x)
+
+#? TERNARY OPERATOR 
+# fizzBuzz = 'Fizz' if n % 3 == 0 else n
+
+# fizzBuzz = 'Fizz' if n % 3 == 0 else 'Buzz' if n % 5 == 0 else n 
+
+fizzBuzz = 'FizzBuzz' if n % 15 == 0 else 'Fizz' if n % 3 == 0 else 'Buzz' if n % 5 == 0 else n 
+
+['FizzBuzz' if n % 15 == 0 else 'Fizz' if n % 3 == 0 else 'Buzz' if n % 5 == 0 else n for n in range(1, 101)]
