@@ -548,3 +548,21 @@ for letter, animals in animalLookup.items():
     if len(animals) > 1:
         print(f'One animal: {animals[0]}')
         break
+
+for number in range(2, 100):
+    for factor in range(2, int(number**0.5)):
+        if number % factor == 0:
+            break
+        else:
+            print(f'{number} is prime!')
+
+
+for number in range(2, 100):
+    found_factors = False
+    for factor in range(2, int(number**0.5)):
+        if number % factor == 0:
+            found_factors = True
+            break
+    if not found_factors:
+        print(f'{number} is prime!')
+             
