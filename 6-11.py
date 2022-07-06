@@ -55,3 +55,32 @@ def spectacularFunction(*args, operation='sum'):
 
 print(spectacularFunction(1,2,3,4,5,6,7, operation='multiply'))
 print(spectacularFunction(1,2,3,4,5,6,7))
+
+#? VARIABLES AND SCOPE 
+
+def localsFunction(*args, operation='sum'):
+    print(locals())
+
+print(localsFunction(1,2, operation='multiply'))
+
+#? RETURNS dictionary of all arguments - kw or positional 
+#* {'operation': 'multiply', 'args': (1, 2)}
+
+print(globals())
+
+message = 'Some global data'
+varA = 2
+def function1(varA, varB):
+    message = 'Some local data'
+    print(varA)
+    print(message)
+    print(locals())
+    
+    
+def function2(varC, varB):
+    print(varA)
+    print(message)
+    print(locals())
+    
+function1(1, 2)
+function2(3, 4)
