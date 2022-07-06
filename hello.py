@@ -520,3 +520,31 @@ while datetime.now().second != wait_until:
     pass
 
 print(f'We are at {wait_until} seconds!')
+
+#? FOR LOOP
+
+theList = [1,2,3,4,5]
+
+for item in theList:
+    print(item)
+
+
+animalLookup = {
+    'a': ['avocado', 'avalanche'],
+    'b': ['beaver', 'bear grills'],
+    'c': ['cucumber'],
+    'd': ['dr dre'],
+}
+
+for letter, animals in animalLookup.items():
+    pass
+
+for letter, animals in animalLookup.items():
+    if len(animals) > 1:
+        continue
+    print(f'One animal: {animals[0]}')
+
+for letter, animals in animalLookup.items():
+    if len(animals) > 1:
+        print(f'One animal: {animals[0]}')
+        break
