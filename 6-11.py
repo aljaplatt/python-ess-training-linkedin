@@ -147,15 +147,82 @@ sorted(myList, key=lambda x: x['num'])
 
 #? CHAPTER 7 - CLASSES AND OBJECTS
 
+# class Dog:
+#     def __init__(self, name):
+#         self.name = name
+#         self.legs = 4
+    
+#     def speak(self):
+#         print(self.name + ' says: Bark!')
+
+# myDog = Dog('Rover')
+# print(myDog.name)
+# print(myDog.legs)
+
+#* name and legs are instance attributes 
+
+#? Static attributes - class name - orientation or class instance, self 
+#? Static methods - we cannot do this - DECORATOR?! @staticmethod
+
+#* INHERITANCE - A CHILD CLASS CAN EXTEND A PARENT CLASS.
 class Dog:
+    _legs = 4
     def __init__(self, name):
         self.name = name
-        self.legs = 4
-    
+
     def speak(self):
         print(self.name + ' says: Bark!')
+    
+    def getLegs(self):
+        return self._legs
+
+
+class Chihuahua(Dog):
+    def speak(self):
+        print(f'{self.name} says: Yap yap yap!')
+        
+    def wagTail(self):
+        print('Vigorous wagging!')
+
+dog = Chihuahua('Roxy')
+dog.speak()
+dog.wagTail()
 
 myDog = Dog('Rover')
-print(myDog.name)
-print(myDog.legs)
+myDog.speak()
 
+#? EXTENDING BUILT-IN CLASSES 
+
+myList = list()
+
+# class UniqueList(list):
+#     def append(self, item):
+#         if item in self:
+#             return
+#         super().append(item)
+        
+# uniqueList = UniqueList()
+# uniqueList.append(1)
+# uniqueList.append(1)
+# uniqueList.append(2)
+
+# print(uniqueList)
+
+class UniqueList(list):
+    
+    def __init__(self):
+        super().__init__()
+        self.someProperty = 'Unique List!'
+        
+
+    def append(self, item):
+        if item in self:
+            return
+        super().append(item)
+        
+uniqueList = UniqueList()
+uniqueList.append(1)
+uniqueList.append(1)
+uniqueList.append(2)
+
+print(uniqueList.someProperty)
