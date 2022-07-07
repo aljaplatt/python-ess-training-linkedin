@@ -2,6 +2,8 @@ import threading
 import time
 from multiprocess import Process
 import csv 
+import json
+from json import JSONDecodeError, JSONEncoder
 
 #? 9. THREADS AND PROCESSES
 
@@ -232,6 +234,51 @@ with open('10_02_ma_prime.csv', 'w') as f:
     writer = csv.writer(f)
     for row in data:
         writer.writerow([row['place name'], row['county']]) 
+
+#* JSON - import json 
+
+#?  looks similar to python dictionary - but is a string 
+# jsonString = '{"a": "apple", "b": "bear", "c": "cat",}'
+# try:
+#     json.loads(jsonString) #? gives us a python dictionary 
+# except JSONDecodeError:  #? import this 
+#     print('Could not parse JSON!')
+
+#* Going from python dictionary to json 
+
+# pythonDict = {'a': 'apple', 'b': 'bear', 'c': 'cat',}
+# json.dumps(pythonDict) 
+
+#! 1 ISSUE THAT COULD OCCUR 
+
+# class Animal:
+#     def __init__(self, name):
+#         self.name = name 
+
+# pythonDict = {'a': Animal('aardvark'), 'b': Animal('bear'), 'c': Animal('cat'),}
+# json.dumps(pythonDict)
+
+#! THIS THROWS TYPE ERR - OBJECT OF TYPE .... IS NOT SERIALIZABLE  
+#* JSON MODULE DOESNT KNOW WHAT THE JSON EQUIVALENT OF THIS CLASS SHOULD BE
+
+#* SOLUTION - OVERRIDE JSON ENCODER WITH OUR OWN 
+
+class Animal:
+    def __init__(self, name):
+        self.name = name
+
+#? o is the object that needs to be decoded into JSON 
+class AnimalEncoder(JSONEncoder):
+    def default(self, o):
+        #? if o is Animal class  
+        if type(o) == Animal:
+            return o.name
+        #? else pass it off to the parent version of the encoder using super()
+        return super().default(o)
+    
+pythonDict = {'a': Animal('aardvark'), 'b': Animal('bear'), 'c': Animal('cat'),}
+#* LET JSON.DUMPS KNOW THAT IT NEEDS TO USE OUR ENCODER
+json.dumps(pythonDict, cls=AnimalEncoder)
 
 
     # print(type(reader)) #? <class '_csv.reader'> - this is an iterable 
