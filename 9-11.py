@@ -1,6 +1,7 @@
 import threading
 import time
 from multiprocess import Process
+import csv 
 
 #? 9. THREADS AND PROCESSES
 
@@ -11,7 +12,7 @@ from multiprocess import Process
 #     time.sleep(1)
 #     return num**2
 
-print([longSquare(n) for n in range(0, 5)]) #? [0, 1, 4, 9, 16]
+# print([longSquare(n) for n in range(0, 5)]) #? [0, 1, 4, 9, 16]
 
 #* Waiting for data from a remote server, threads allow to wait in parallel - not one at a time.
 #? 2 threads - t1 & t2 - target is the target function, args = what we pass to that fn
@@ -74,7 +75,7 @@ print([longSquare(n) for n in range(0, 5)]) #? [0, 1, 4, 9, 16]
 def longSquare(num, results):
     time.sleep(1)
     print(num**2)
-    print('Finished computing!')
+    # print('Finished computing!')
 
 results = {}
 processes = [Process(target=longSquare, args=(n,results)) for n in range(0, 10)]
@@ -107,7 +108,7 @@ results = {}
 threads = [threading.Thread(target=longSquare, args=(n, results)) for n in range(0, 10)]
 [t.start() for t in threads]
 [t.join() for t in threads]
-print(results)
+# print(results)
 
 #? WHATS HAPPENING?
 #  Threading emulates parallel computing
@@ -138,5 +139,102 @@ print(results)
 
 #* 10. WORKING WITH FILES
 
+#? ARE YOU READING OR WRITING TO A FILE ? 
+#* open function takes 2 args, the file and 'r', 'w', 'x'... - read, write. create modes
+f = open('10_01_file.txt', 'r')
+print(f) #? FILE OBJ - <_io.TextIOWrapper name='10_01_file.txt' mode='r' encoding='UTF-8'>
+
+#* VIEW THE CONTENTS OF THIS FILE ? - .readline()
+
+# print(f.readline()) #? - Hello i'm a file
+# print(f.readlines()) #? - read all unread lines 
+
+# for line in f.readlines():
+    # print(line) 
+    # print(line.strip()) #* removes unnecessary white space 
+
+# write = open('10_01_output.txt', 'w')
+# print(write)
+
+# write.write('Nananananana\n')
+# write.write('Batman!')
+
+#! You have to specify when you want a new line
+#* Write mode is more like a create mode, if you open it with 'w', it will overwrite the previous data
+#? We can prevent this by using append mode instead 
+
+write = open('10_01_output.txt', 'a')
+# print(write)
+
+write.write('Line 3 Ill be \n')
+write.write('Line 4 Batman!\n')
+write.close() #! IMPORTANT 
+
+with open('10_01_output.txt', 'a') as write:
+    write.write('some stuff\n')
+    write.write('some other stuff\n')
+    
+print(write)
+
+# write.write('PS. I forgot some stuff') #! - ValueError: I/O operation on closed file.
+
+#* CSV - import csv at top 
+ 
+# with open('10_02_us.csv', 'r') as file:  #* reader object isn't a list, but is iterable
+#     reader = csv.reader(file, delimiter='\t')
+#     for row in reader:
+#         print(row)
+
+#* SKIP column HEADER - NEXT 
+
+# with open('10_02_us.csv', 'r') as file:  #* reader object isn't a list, but is iterable
+#     reader = csv.reader(file, delimiter='\t')
+#     next(reader) #? skips top row, can call multiple times
+#     for row in reader:
+#         print(row)
+
+#* CONVERT TO LIST  
+# with open('10_02_us.csv', 'r') as file:  #* reader object isn't a list, but is iterable
+#     reader = list(csv.reader(file, delimiter='\t'))
+#     for row in reader[1:]: #? LIST SLICING SYNTAX TO SKIP OVER THE HEADER
+#         print(row)
+
+#* WANT TO USE HEADER ? - DICT READER ?  
+
+# with open('10_02_us.csv', 'r') as file:  #* reader object isn't a list, but is iterable
+#     reader = csv.DictReader(file, delimiter='\t')
+#     for row in reader:
+#         print(row)
+#? WILL USE THE HEADER AS A KEY FOR EACH ROW - KEY VALUE PAIR 
+
+#* CONVERT FROM READER OBJ TO LIST 
+
+with open('10_02_us.csv', 'r') as file:  #* reader object isn't a list, but is iterable
+    data = list(csv.DictReader(file, delimiter='\t'))
+
+#* FILTERING DATA
+#? FIND POSTCODES THAT ARE DIVISIBLE BY 1 AND THEMSELVES  
+primes = []
+#* GETS PRIME NO BETWEEN V 
+for number in range(2, 99999):
+    for factor in range(2, int(number**0.5)):
+        if number % factor == 0:
+            break
+    else:
+        primes.append(number) 
+
+data = [row for row in data if int(row['postal code']) in primes and row['state code'] == 'MA']
+len(data)
+
+#* WRITE BACK TO CSV FILE 
+
+with open('10_02_ma_prime.csv', 'w') as f:
+    writer = csv.writer(f)
+    for row in data:
+        writer.writerow([row['place name'], row['county']]) 
+
+
+    # print(type(reader)) #? <class '_csv.reader'> - this is an iterable 
+#? this file contains tab separators \t - we can alter this by passing it in as a delimiter argument 
 
 #? 11. PACKAGING PYTHON
