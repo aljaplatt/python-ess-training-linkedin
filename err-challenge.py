@@ -196,3 +196,7 @@ def circleBottom(x):
 canvas = Canvas(40, 40)
 scribe = TerminalScribe(canvas, color='lavender')
 scribe.forward(10)
+
+#? What gives you valuable information to solve the problem when your program encounters an error?
+
+# stack trace
