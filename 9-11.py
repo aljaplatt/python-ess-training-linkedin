@@ -285,3 +285,8 @@ json.dumps(pythonDict, cls=AnimalEncoder)
 #? this file contains tab separators \t - we can alter this by passing it in as a delimiter argument 
 
 #? 11. PACKAGING PYTHON
+
+#* COMMAND LINE ARGUMENTS
+# -h --help
+# -i somefile.txt
+#?  
