@@ -30,14 +30,14 @@ print("Your mission is to find the treasure.")
 left_right = input('Left or right?').lower()
 
 if left_right != 'left':
-    print('game over')
+    print('eaten by a duck')
 else:
     swim_wait = input('swim or wait?').lower()
     if swim_wait != 'wait':
-        print('eaten by shark')
+        print('captured by pirates')
     else: 
-        door = input('Red or blue door?').lower()
-        if door != 'yellow':
+        door = input('what color door? Red, Green or Blue?').lower()
+        if door != 'green':
             print('game over')
         else:
             print('Ducktails a woohoo...')
