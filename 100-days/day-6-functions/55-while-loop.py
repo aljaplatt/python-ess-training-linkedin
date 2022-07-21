@@ -1,4 +1,14 @@
+# num_of_weeks_to_xmas = 10
+# while num_of_weeks_to_xmas > 0:
+#     num_of_weeks_to_xmas -= 1
+#     print('Another week down')
+
+# num_of_weeks_to_xmas = 10
+# while not num_of_weeks_to_xmas == 0:
+#     num_of_weeks_to_xmas -= 1
+#     print('Another week down')
+
 num_of_weeks_to_xmas = 10
-while num_of_weeks_to_xmas > 0:
+while num_of_weeks_to_xmas != 0:
     num_of_weeks_to_xmas -= 1
     print('Another week down')
