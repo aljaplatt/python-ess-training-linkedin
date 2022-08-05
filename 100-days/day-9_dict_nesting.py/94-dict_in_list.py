@@ -35,5 +35,6 @@ order = {
     "dessert": {1: ["Ice Cream"], 2: []},
 }
 
+print(order["starter"][1]) # ['steak']
 print(order["main"][2]) # ['steak']
 print(order["main"][2][0]) # 'steak'
