@@ -46,6 +46,9 @@ def game():
 
 #Function to check user's guess against actual answer.
         turns = check_answer(guess, answer, turns)
+        if turns == 0:
+            print('Game over')
+            return 
 
 #todo Track the number of turns and reduce by 1 if they get it wrong.
 
