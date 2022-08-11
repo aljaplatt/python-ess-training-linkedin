@@ -1,5 +1,6 @@
 from art import logo, vs
 from game_data import data
+from scripts.clear import clear
 import random 
 
 def format_data(acc):
@@ -22,12 +23,14 @@ def check_answer(guess, a_followers, b_followers):
 print(logo)
 score = 0
 continue_game = True
+account_b = random.choice(data)
 
 while continue_game:
     #* generate random account from the game data
-    account_a = random.choice(data)
+    #todo refactor 
+    account_a = account_b
     account_b = random.choice(data)
-    if account_a == account_b:
+    while account_a == account_b:
         account_b = random.choice(data)
 
     print(f"Compare A: {format_data(account_a)}")
@@ -46,6 +49,9 @@ while continue_game:
 
     is_correct = check_answer(guess, a_follower_count, b_follower_count)
 
+    #* Clear terminal between rounds   
+    clear()
+    print(logo)
     #* give user feedback on their guess 
     if is_correct:
         score += 1
@@ -54,10 +60,8 @@ while continue_game:
         continue_game = False
         print(f"Nope. Final score {score}")
 
-    #? score keeping
 
-    #* make game repeatable  
 
-    #? making accounts at position b, move to position a 
+    #? making accounts at position b, move to position ✅
 
-    #* Clear terminal between rounds     
+      
