@@ -14,28 +14,13 @@ freelancers = {'name':'freelancing Shop','brian': 70, 'black knight':20, 'biccus
 antiques = {'name':'Antique Shop','french castle':400, 'wooden grail':3, 'scythe':150, 'catapult':75, 'german joke':5}
 pet_shop = {'name':'Pet Shop','blue parrot':10, 'white rabbit':5, 'newt': 2}
 
-#create an empty shopping cart
+#create an dempty shopping cart
 cart = {}
 #loop through stores/dicts
-# for LOOP OVER THE SHOPS :
-#     #inputbox  to show what you can buy...capture textstring of what was bought...make lowercase
-#     buy_item = input(f'Welcome to {SHOPNAME}! what do you want to buy: {LIST ITEMS FOR SALE})
-#     #update the cart
-#     cart.update({insert KEYVAL:VALUE}) # use pop...
-# print(f'You Purchased {ITEMS PUCHASED} Today it is all free. Have a nice day of mayhem!')
-
-for shop in (freelancers, antiques):
+for shop in (freelancers,antiques,pet_shop) :
     #inputbox  to show what you can buy...capture textstring of what was bought...make lowercase
-    buy_item = input(f'Welcome to {shop["name"]}! what do you want to buy: {shop.items()}').lower()
-    print(buy_item)
-    #update the cart - buy_item is the key, shop.pop(buy_item) RETURNS THE VALUE
+    buy_item = input(f'Welcome to {shop["name"]}! what do you want to buy: {shop}').lower()
+    #update the cart
     cart.update({buy_item:shop.pop(buy_item)}) # use pop...
-    # cart.update({shop.pop(buy_item)}) # use pop...
-    print('CART:', cart )
     buy_items = ", ".join(list(cart.keys()))
-    print('2ND BUY ITEM: ', buy_item)
-    print('CART:', cart )
-# print(f'You Purchased {cart.keys()} Today it is all free. Have a nice day of mayhem!')
-# print(f'You Purchased {list(cart.keys())} Today it is all free. Have a nice day of mayhem!')
-# print(f'You Purchased {", ".join(list(cart.keys()))} Today it is all free. Have a nice day of mayhem!')
-print(f'You Purchased {buy_items} Today it is all free. Have a nice day of mayhem!')
+print(f'You Purchased {buy_items}. Today it is all free. Have a nice day of mayhem!')
