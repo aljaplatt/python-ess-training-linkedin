@@ -18,18 +18,24 @@ pet_shop = {'name':'Pet Shop','blue parrot':10, 'white rabbit':5, 'newt': 2}
 cart = {}
 #create purse with 1000Gp
 purse = 1000
+#todo 1.2
+buy_items1 = ''
 
 #loop through stores/dicts
 for shop in (freelancers,antiques,pet_shop) :
     #inputbox  to show what you can buy...capture textstring of what was bought...make lowercase
     buy_item = input(f'Welcome to {shop["name"]}! what do you want to buy: {shop} (type exit to exit store): ').lower()
-    #exit on exit typed or buying non-existant item
+    #todo 1.2 #exit on exit typed or buying non-existant item
     if buy_item == 'exit':
         continue
     if buy_item not in shop:
         continue
+    #update string
+    buy_items1 = buy_items1 + f'{buy_item}:{shop[buy_item]} Gp, ' 
     #update the cart
     cart.update({buy_item:shop.pop(buy_item)}) # use pop...
     buy_items = ", ".join(list(cart.keys()))
+    #todo 1.2
     total_sum = sum(cart.values())
 print(f'You Purchased {buy_items}. Your total is {total_sum} gold pieces. Your change is {purse - total_sum}. Have a nice day of mayhem!')
+print(f'You Purchased {buy_items1}. Your total is {total_sum} gold pieces. Your change is {purse - total_sum}. Have a nice day of mayhem!')
