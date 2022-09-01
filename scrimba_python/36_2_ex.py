@@ -17,9 +17,10 @@ pet_shop = {'name':'Pet Shop','blue parrot':10, 'white rabbit':5, 'newt': 2}
 cart = {}
 #loop through stores/dicts
 for shop in (freelancers, antiques, pet_shop) :
+    # buy item is the item we're buyin in that iteration, first from freelancers, then antiques etc ... 
     #capture user input to show what you can buy...capture textstring of what was bought...make lowercase
-    buy_item = input(f'Welcome to {shop["name"]}! what do you want to buy: {shop}').lower
-    #update the cart
+    buy_item = input(f'Welcome to {shop["name"]}! what do you want to buy: {shop}: ').lower()
+    #update the cart with buy_item
     cart.update({buy_item:shop.pop(buy_item)}) # use pop...
     buy_items = ", ".join(list(cart.keys()))
-print(f'You Purchased {buy_item} Today it is all free. Have a nice day of mayhem!')
+print(f'You Purchased {buy_items} Today it is all free. Have a nice day of mayhem!')
