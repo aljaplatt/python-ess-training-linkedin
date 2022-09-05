@@ -5,14 +5,34 @@ print('Lambdas Exercise')
 #f = ...#insert equivalent lambda here
 
 f = lambda x: x+5
-print(f(2))
+# print(f(2))
 
 # ? 2
 # def strip_spaces(str):
 #    return ''.join(str.split(' '))
 #write equivalent lambda and insert Lambda here
-strip_spaces1 = lambda str: ''.join(str.split(' '))
-print(strip_spaces1('Monty Pythons Flying Circus')) 
+strip_spaces1 = lambda str: ''.join(str.split())
+strip_spaces2 = lambda str: ' '.join(str.split())
+print(strip_spaces1('Monty Pythons Flying Circus')) #? MontyPythonsFlyingCircus
+print(strip_spaces2('Monty Pythons Flying Circus')) #? Monty Pythons Flying Circus
+
+# string = 'Monty Pythons Flying Circus'
+
+# split_string = string.split()
+# print(split_string) #* ['Monty', 'Pythons', 'Flying', 'Circus']
+# split_string = string.split('-') 
+# print(split_string) #* ['Monty Pythons Flying Circus'] - no dash
+
+#? Join list to string 
+
+# back_to_string = ' '.join(split_string)
+# print(back_to_string) #? Monty Pythons Flying Circus
+
+# back_to_string = '-'.join(split_string)
+# print(back_to_string) #? Monty-Pythons-Flying-Circus
+
+# back_to_string = ''.join(split_string)
+# print(back_to_string) #? MontyPythonsFlyingCircus
 
 # ? 3
 
@@ -22,9 +42,14 @@ list_a = [1,2,3,4]
 list_b = [3,4,5,6,7]
 #write lambda below 
 join_list_no_duplicates1 = lambda list_a,list_b: list(set(list_a + list_b))
-print(join_list_no_duplicates(list_a,list_b))
-print(join_list_no_duplicates1(list_a,list_b))
+# print(join_list_no_duplicates(list_a,list_b))
+# print(join_list_no_duplicates1(list_a,list_b))
 
+
+la = [1,2,3,4]
+lb = [3,4,5,6,7]
+lc = list(set(la + lb)) 
+print('LC: ', lc) #? {1, 2, 3, 4, 5, 6, 7} -> LC:  [1, 2, 3, 4, 5, 6, 7]
 
 # ? 4
 #Complete the function so it returns a function
@@ -41,16 +66,16 @@ def create_quad_func(a,b,c):
     return lambda x: a*x**2 + b*x + c
 f = create_quad_func(2,4,6)
 g = create_quad_func(1,2,3)
-print(f(2))
-print(g(2))
+# print(f(2))
+# print(g(2))
 
 # ? 5
 
 signups = ['MPF104', 'MPF20', 'MPF2', 'MPF17', 'MPF3', 'MPF45']
-print(sorted(signups)) #* Lexicographic sort ['MPF104', 'MPF17', 'MPF2', 'MPF20', 'MPF3', 'MPF45']
+# print(sorted(signups)) #* Lexicographic sort ['MPF104', 'MPF17', 'MPF2', 'MPF20', 'MPF3', 'MPF45']
 #write sorting by integer
 #print(sorted(...) # Integer sort
-print(sorted(signups,key = lambda id:int(id[3:]))) # Integer sort
+# print(sorted(signups,key = lambda id:int(id[3:]))) # Integer sort
 
 # ? 6
 
@@ -68,4 +93,4 @@ player_list = [Eric, John, Terry]
 #Exercise: Sort this by score using lambda!
 #write code here
 player_list.sort(key = lambda playyer: playyer.score, reverse = True)
-print('6: ', [player.name for player in player_list])
+# print('6: ', [player.name for player in player_list])

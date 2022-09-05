@@ -1,3 +1,6 @@
+from string import whitespace
+
+
 print(' Lambda Functions')
 
 # def square(x):
@@ -23,6 +26,11 @@ def name_and_alias(name,alias):
 name_and_alias1 = lambda name,alias:name.strip().title() + ':' + alias.strip().title()
 
 # print(name_and_alias1(' john  ClEEse  ','HECKLER')) #? John Cleese:Heckler
+
+whitespace = '   eriK TeN haG    '
+print('WHITESPACE:', whitespace.strip())
+print('WHITESPACE:', whitespace)
+print('WHITESPACE:', whitespace.strip().title())
 
 
 #########################################################
