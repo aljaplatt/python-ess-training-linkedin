@@ -62,9 +62,13 @@ print('LC: ', lc) #? {1, 2, 3, 4, 5, 6, 7} -> LC:  [1, 2, 3, 4, 5, 6, 7]
 #print(g(2))
 
 def create_quad_func(a,b,c):
+    # a times x to the power of 2 = a*x**2
+    # b times x + C = b*x + c
+
     '''return function f(x) = ax^2 + bx + c'''
     return lambda x: a*x**2 + b*x + c
 f = create_quad_func(2,4,6)
+# write your own function = just use diff arguments 
 g = create_quad_func(1,2,3)
 # print(f(2))
 # print(g(2))
@@ -72,9 +76,14 @@ g = create_quad_func(1,2,3)
 # ? 5
 
 signups = ['MPF104', 'MPF20', 'MPF2', 'MPF17', 'MPF3', 'MPF45']
-# print(sorted(signups)) #* Lexicographic sort ['MPF104', 'MPF17', 'MPF2', 'MPF20', 'MPF3', 'MPF45']
-#write sorting by integer
+# print(sorted(signups)) #* Lexicographic sort ['MPF104', 'MPF17', 'MPF2', 'MPF20', 'MPF3', 'MPF45'] 
+#! - puts 104 before 20, because 104 starts with 1 & 20 starts with 2
+
+# sort by integer
 #print(sorted(...) # Integer sort
+#* here we ignore / slice the first 3 digits, then convert the rest from a string to int.
+#? first arg is what we want to sort
+#? second is how we want to sort
 # print(sorted(signups,key = lambda id:int(id[3:]))) # Integer sort
 
 # ? 6
@@ -88,9 +97,15 @@ Eric = Player('Eric', 116700)
 John = Player('John', 24327)
 Terry = Player('Terry', 150000)
 player_list = [Eric, John, Terry]
+print(player_list)
+#? [<__main__.Player object at 0x1010bfb80>, <__main__.Player object at 0x1010bfb20>, <__main__.Player object at 0x1010bfac0>]
 
 
 #Exercise: Sort this by score using lambda!
 #write code here
 player_list.sort(key = lambda playyer: playyer.score, reverse = True)
-# print('6: ', [player.name for player in player_list])
+print('6: ', [player.name for player in player_list])
+print('6: ', [player.score for player in player_list])
+
+player_scores = [player.score for player in player_list]
+print(player_scores)

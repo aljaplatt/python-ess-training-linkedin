@@ -7,6 +7,7 @@ my_tuple = ('d','c','e','a','b') # immutable - no sort, have to typecast
 my_string = 'python'  # immutable - no sort, have to typecast
 
 #* LISTS
+#? Sort doesnt actually return anything - just does the work
 
 # print(my_list,'original')
 # print(my_list.sort()) #? None, doesn't return anything
@@ -21,6 +22,9 @@ my_string = 'python'  # immutable - no sort, have to typecast
 # print(my_list,'new')
 
 # print(sorted(my_list), 'sorted')
+
+#TODO - sorted(my_list) - is the same as doing - my_list1 =sorted(my_list)
+#todo, returns a new list 
 
 print('RESEVERSED OBJ', reversed(my_list))
 print('RESEVERSED OBJ', list(reversed(my_list)))
