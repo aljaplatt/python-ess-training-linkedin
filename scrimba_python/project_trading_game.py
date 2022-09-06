@@ -32,7 +32,7 @@ for draw in range(1,rounds+1):
     purse += result
     #lose game if lose half of money
     if purse < 0.5 * start_purse:
-        print(f'Game over! You lost to much gold!!!')
+        print(f'Game over! You lost too much gold!!!')
         break
     #print results
     print(f'purse: {purse}, last result: ({marble}): {result}')
