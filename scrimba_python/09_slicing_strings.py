@@ -15,6 +15,10 @@ msg='welcome to Python 101: Strings'
 # print(msg.count('python'))
 # print(msg.count('Python'))
 # print(msg.count('o'))
-print('PRINT', msg[2:]) #*  lcome to Python 101: Strings
-print('PRINT', msg[2:6]) #*  lcome
-print('PRINT', msg[:7]) #*  welcome
+# print('PRINT', msg[2:]) #*  lcome to Python 101: Strings
+# print('PRINT', msg[2:6]) #*  lcome
+# print('PRINT', msg[:7]) #*  welcome
+# print('PRINT', msg[:7]) #*  welcome
+print('PRINT', msg[:-3]) #*  welcome
+last_3 = msg[-3:]
+print(last_3)
