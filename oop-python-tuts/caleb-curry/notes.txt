@@ -1,0 +1,17 @@
+
+OOP - Allows us to represent and collect more complex data
+
+2 big things - classes & objects
+
+1. classes - represent a thing ie: a student
+2. objects - specific examples of a thing ie: a student called Alex
+
+By creating our own classes, we can group things in logical units.
+We define a blueprint for what we want the class to store and how it should behave.
+
+class = student and we want it to store name and subject.
+
+We can then instantiate a class into an object. This is where you will populate the object with the data the class requires. 
+
+object 1 = Alex, Python 
+object 2 = Kelly, Java

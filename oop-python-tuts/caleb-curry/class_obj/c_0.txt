@@ -1,0 +1,7 @@
+
+__init__ - constructor or initialiser 
+
+- any time a customer classes is created - the __init__ function is invoked
+- anything needed for the customer to exist 
+
+- self refers to the customer object we're creating 
