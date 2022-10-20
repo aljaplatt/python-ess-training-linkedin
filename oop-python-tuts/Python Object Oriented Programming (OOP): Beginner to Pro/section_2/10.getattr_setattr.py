@@ -1,8 +1,5 @@
 # gettattr is a built in python function
 
-from inspect import Attribute
-
-
 class MercedesBenz:
     doors = 4
     wheels = 4
