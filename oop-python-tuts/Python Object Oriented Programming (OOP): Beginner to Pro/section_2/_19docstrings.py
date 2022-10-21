@@ -1,5 +1,13 @@
 from _17mutables import MercedesBenz, Tire, m1
 
+'''
+- Docstrings should be written as the first statement of a class, function or module
+
+- The python compiler binds them to the __doc__ attribute of the object, and they are also reflected in help()
+
+- comments should be used to add further explanation to more specific, possible unclear code
+''' 
+
 # help(getattr)
 
 obj = {"name": "Alex", "team": "United", "job": "software engineer"}
