@@ -1,5 +1,10 @@
 
 class Tire:
+    '''
+    Defines an automobile tire object.
+    :param type: the type of tyre, e.g. wet, off-road, winter
+    :param distance_covered: the distance in km the tire has travelled 
+    '''
     def __init__(self, type, distance_covered):
         self.type = type
         self.distance_covered = distance_covered

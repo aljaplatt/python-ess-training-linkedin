@@ -9,3 +9,5 @@ m1.doors += 1
 print(m1.doors) # 5
 
 #* The default is to have all attributes be publicly accessible 
+
+#* It is possible to implement this behaviour through the use of properties, which allow the same syntax to access and set data. 
