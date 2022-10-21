@@ -10,9 +10,10 @@ class MercedesBenz:
         print(f"A mercedes is driving. It is {self}\n")
     
     #todo RECAP - functions defined in the class body are assumed to be instance methods, and are automatically passed 'self' as an argument.
-    #* However we may not want an solely an instance method, we may want to call it from the class. We can do this using the @staticmethod decorator. 
+    #* However we may not want solely an instance method, we may want to call it from the class. We can do this using the @staticmethod decorator. 
     @staticmethod
     def auto_drive():
+        # doesnt require access to instance attributes 
         print("Auto-driving")
         return "Auto-driving"
 

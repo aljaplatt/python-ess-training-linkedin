@@ -31,4 +31,4 @@ m1.create_lease() # calling from the instance has the same result
 
 #* this allows class methods to modify class state or behaviour at runtime
 
-#? static methods allow you to add conceptually related, regular functions to the class, that do not need access to the class state, self. 
+#? static methods allow you to add conceptually related, regular functions to the class, that do not need access to the instance state, (self) or class state (cls). 
