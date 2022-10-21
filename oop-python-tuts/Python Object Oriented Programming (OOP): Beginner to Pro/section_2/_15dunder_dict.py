@@ -13,7 +13,7 @@ class MercedesBenz:
     def drive(self):
         print(f"A mercedes is driving. It is {self}\n")
     
-
+    @staticmethod
     def auto_drive():
         print("Auto-driving")
         return "Auto-driving"
