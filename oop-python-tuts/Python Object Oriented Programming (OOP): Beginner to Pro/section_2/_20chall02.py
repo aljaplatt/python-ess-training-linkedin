@@ -17,6 +17,7 @@ class Password:
     :type length: int, optional
     """
     #* 2. CLASS VARIABLES - INPUT_UNIVERSE & DEFAULT_LENGTHS
+    #! THIS IS MUTABLE  
     INPUT_UNIVERSE = {
         "numbers": list(range(10)),
         "letters": list(ascii_letters),
@@ -32,6 +33,7 @@ class Password:
         "mid": 12,
         "high": 16
     }
+
     #* 3. defined as a class method as it is not specific to the instance
     @classmethod
     def show_input_universe(cls):
@@ -48,7 +50,9 @@ class Password:
         self.strength = strength
         self.length = length
 
+        # the generate function is called after initialisation and the field self.password is generated. 
         self._generate()
+
 
     #* 4. underscore indicates that this is only for class use, not users to call method
     def _generate(self):
@@ -57,7 +61,10 @@ class Password:
         :return: the randomly generated password
         :rtype: str
         """
-
+        #* population is the variable that is populated with depending upon the password strength chosen
+        #! population = self.INPUT_UNIVERSE["letters"] - points to a place in memory, if we then change that, we'd change what is stored in that location in memory. 
+        #? here we use copy to prevent the mutation of the class variable 
+        # everytime we create a new instance, we create a new copy - which can be manipulated. 
         population = copy(self.INPUT_UNIVERSE["letters"])
         #? if user specifies a length at instantiation, use that.
         #* if not, use the default.
@@ -69,9 +76,23 @@ class Password:
             population += self.INPUT_UNIVERSE["numbers"]
 
         self.password = "".join(list(map(str, choices(population, k=length))))
+        # random.choices - take a number of random options from a list - specify using k=num
+        #? join an array into a string = "".join() 
+        #* get a 4 random letters from ascii_letters 
+        # "".join(choices(list(ascii_letters), k=4)) - #* this will give us 4 random letters
+        #todo - HOWEVER, we still need to be able to add numbers and punctuation in. 
+        #! # "".join(choices(list(range(10)), k=4)) - if we try to do this with num 0-9, we have a problem. The string join function, cannot join int to string, we need to turn int to string, then join. 
+        #? we could do - list(map(lamda x: str(x), choices(list(ascii_letters) + list(range(10)), k=4)) )
+        # then join 
+        #* "".join(list(map(lamda x: str(x), choices(list(ascii_letters) + list(range(10)), k=4)) )) 
+        # or probably better ... 
+        #* "".join(list(map(str, choices(list(ascii_letters) + list(range(10)), k=4)))) - swap ascii_letters for population 
+
+
 
 
 if __name__ == "__main__":
+    #? here we're just 'testing' our code, in lieu of actual tests
     p_weak = Password(strength="low")
     print("Weak password: " + p_weak.password)
 
