@@ -49,3 +49,44 @@ weather_c = {
 weather_f = {day:(temp_c * 9/5) + 32 for (day, temp_c) in weather_c.items()}
 # {'Monday': 53.6, 'Tuesday': 57.2, 'Wednesday': 59.0, 'Thursday': 57.2, 'Friday': 69.8, 'Saturday': 71.6, 'Sunday': 75.2}
 print(weather_f) 
+
+# loop through a dictionary 
+
+student_dict = {
+    "student": ["Angela", "James", "Lily"],
+    "score": [56,99,23]
+}
+
+for (key, value) in student_dict.items():
+    print(key)
+    print(value)
+# student
+# ['Angela', 'James', 'Lily']
+# score
+# [56, 99, 23]
+
+import pandas as pd # pip install pandas
+
+student_dataframe = pd.DataFrame(student_dict)
+print("PD: ", student_dataframe)
+
+# PD: student  score
+# 0  Angela     56
+# 1   James     99
+# 2    Lily     23
+
+# Loop through dataframe - but this output is not so useful
+
+for (key, value) in student_dataframe.items():
+    print(key)
+    print(value)
+
+# better to use iterrows
+
+for (index, row) in student_dataframe.iterrows():
+    print(index)
+    print(row)
+    print(row.student)
+    print(row.score)
+    if row.student == "Lily":
+        print(row.score)
